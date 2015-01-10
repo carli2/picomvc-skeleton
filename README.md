@@ -13,6 +13,8 @@ Directory Structure
 
 - <tt>\*.php</tt> all controllers you want to write. Take index.php as a reference.
 - <tt>view.php</tt> the template engine
+- <tt>db.php</tt> the database engine
+- <tt>conf.php.dist</tt> the default config (copy to conf.php in deployment)
 - <tt>js/</tt> for your javascript
 - <tt>css/</tt> for your style sheets
 - <tt>img/</tt> for your images
@@ -26,7 +28,7 @@ You basically write controllers as php files that require 'view.php', do some lo
 
 Telling the view to render <tt>users/edit</tt> means it will render the file <tt>view/users/edit.phtml</tt>. Insert your HTML code into that file and access the <tt>$this</tt> object from PHP in order to access the fields set by the controller. Render inner views by calling <tt>$this-&gt;render('viewname')</tt> or creating a new <tt>View</tt> object and calling <tt>render()</tt>. The second version is better since it encapsulates data e.g. for loops.
 
-PicoMVC is one of the best documented frameworks I ever saw. Every file contains enough comments to have a clear idea how to use the framework properly.
+If you want to use database support, create a new file, require 'db.php', create a class that inherits from DB and override performUpdates(). Then, whenever you need the database, create an instance of your new class. Use MyClass::getInstance(). Put all database related functions into your class.
 
 Getting Started
 ---------------

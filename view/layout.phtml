@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title><?php echo $this->title ?: 'HTML5 Layout' ?></title>
+    <title><?php echo isset($this->title) ? $this->title : 'HTML5 Layout' ?></title>
     <!-- don't forget keywords for proper SEO -->
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
