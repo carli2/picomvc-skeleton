@@ -24,6 +24,12 @@ Directory Structure
 Usage
 ---------
 
+### Business Logic API
+
+Create a file `api.php` that requires `db.php`, create a class that extends `DB`, overwrite the function `protected performUpdates(&$current_version)` (complete guide at db.php) and add all public API functions you want to add to the business logic. Refer to `$this->sql` as the mysqli object.
+
+### Controllers and views
+
 You basically write controllers as php files that require 'view.php', do some logic and then instanciate a <tt>View</tt> object, fill in the fields and call <tt>render()</tt>. Set <tt>View-&gt;template</tt> to a script in <tt>view/</tt> and implement all rendering routines there while the logic stays in the controllers.
 
 Telling the view to render <tt>users/edit</tt> means it will render the file <tt>view/users/edit.phtml</tt>. Insert your HTML code into that file and access the <tt>$this</tt> object from PHP in order to access the fields set by the controller. Render inner views by calling <tt>$this-&gt;render('viewname')</tt> or creating a new <tt>View</tt> object and calling <tt>render()</tt>. The second version is better since it encapsulates data e.g. for loops.
@@ -33,7 +39,7 @@ If you want to use database support, create a new file, require 'db.php', create
 Getting Started
 ---------------
 
-Just clone the git repository into a folder and start adding controllers and views.
+Just clone the git repository into a folder and start adding the API, controllers and views.
 
 <tt>git clone https://github.com/carli2/picomvc-skeleton</tt>
 

@@ -92,7 +92,7 @@ class DB {
 		*/
 	}
 
-	private function __construct() {
+	protected function __construct() {
 		if (!file_exists('conf.php')) {
 			die(_('Missing config. Please copy conf.php.dist to conf.php and edit it.'));
 		}
